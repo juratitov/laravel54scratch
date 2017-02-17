@@ -11,11 +11,20 @@
 |
 */
 
+Route::get('/', 'PostsController@index')->name('home');
+
 Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/{task}', 'TasksController@show');
+
 Route::get('/posts', 'PostsController@index');
 Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}', 'PostsController@show');
 Route::post('/posts/{post}/comments', 'CommentsController@addComment');
 
+Route::get('/registration', 'RegistrationController@create');
+Route::post('/registration', 'RegistrationController@store');
+
+Route::get('/login', 'SessionController@create');
+Route::post('/login', 'SessionController@store');
+Route::get('/logout', 'SessionController@destroy');

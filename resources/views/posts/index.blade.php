@@ -2,6 +2,13 @@
 
 @section('content')
 
+    @if(Auth::check())
+        <a href="/posts/create" class="btn btn-success ml-auto">
+            Create
+        </a>
+        <hr>
+    @endif
+
     @foreach($posts as $post)
         @include('posts.post')
     @endforeach

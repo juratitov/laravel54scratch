@@ -1,11 +1,15 @@
 <div class="blog-masthead">
     <div class="container">
-        <nav class="nav blog-nav">
+
+        <nav class="nav navbar-left">
             <a class="nav-link active" href="/posts">Posts</a>
-            <a class="nav-link" href="#">New features</a>
-            <a class="nav-link" href="#">Press</a>
-            <a class="nav-link" href="#">New hires</a>
-            <a class="nav-link" href="#">About</a>
+
+            @if(Auth::check())
+                <a class="nav-link ml-auto" href="/logout">{{ Auth::user()->name }}, Logout</a>
+            @else
+                <a class="nav-link ml-auto" href="/login">Login</a>
+                <a class="nav-link" href="/registration">SignUp</a>
+            @endif
         </nav>
     </div>
 </div>
