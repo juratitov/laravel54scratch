@@ -14,9 +14,11 @@
         @if(count($post->comments))
 
             @foreach($post->comments as $comment)
-                <blockquote class="blockquote blockquote-reverse">
+                <span class="small pull-left">{{ $comment->user->name }} say:</span>
+                <blockquote class="blockquote">
                     <p class="mb-0">{{$comment->body}}</p>
-                    <footer class="blockquote-footer">{{ $comment->created_at->diffForHumans() }}</footer>
+                    <footer class="blockquote-footer"><span
+                                class="small">{{ $comment->created_at->diffForHumans() }}</span></footer>
                 </blockquote>
             @endforeach
         @else

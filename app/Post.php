@@ -30,7 +30,8 @@ class Post extends Model
 
     public function addComment($body)
     {
-        $this->comments()->create(compact('body'));
+        $user_id = auth()->id();
+        $this->comments()->create(compact('body','user_id'));
     }
 
     /**
@@ -46,6 +47,17 @@ class Post extends Model
         if ($year = array_get($filters, 'year')) {
             $query->whereYear('created_at', $year);
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function archives()
+    {
+        return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
+            ->groupBy('year', 'month')
+            ->orderByRaw('min(created_at) desc')
+            ->get()->toArray();
     }
 
 }

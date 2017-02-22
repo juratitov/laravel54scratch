@@ -13,12 +13,14 @@
 
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" required>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" required
+                   value="{{ old('name') }}">
         </div>
 
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required
+                   value="{{ old('email') }}">
         </div>
 
         <div class="form-group">
