@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PostsController@index')->name('home');
+Route::get('/home', 'PostsController@index');
 
 Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/{task}', 'TasksController@show');
